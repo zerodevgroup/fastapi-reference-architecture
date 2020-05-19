@@ -1,0 +1,65 @@
+{
+  "name": "events-svc",
+  "description": "events-svc",
+  "repo": "https://github.com/zerodevgroup/fastapi-reference-architecture",
+  "license": "MIT",
+  "author": "zerodevgroup",
+  "framework": {
+    "name": "neon-frost"
+  },
+  "config": {
+    "postgresUrl": "postgresql://<myuser>:<mypass>@<myserver>/<mydb>",
+    "domain": "localhost",
+    "basePath": "/",
+    "pagination:" : {
+      "itemsPerPage": 10
+    }
+  },
+  "tables": [
+    {
+      "name": "events",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primaryKey": true
+        },
+        {
+          "name": "name",
+          "type": "String"
+        },
+        {
+          "name": "start_time",
+          "type": "DateTime"
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "name": "event",
+      "fields": [
+        {
+          "name": "name",
+          "type": "str"
+        },
+        {
+          "name": "start_time",
+          "type": "datetime"
+        }
+      ]
+    }
+  ],
+  "controllers": [
+    {
+      "model": "event",
+      "type": "CRUD"
+    }
+  ],
+  "routes": [
+    {
+      "model": "event",
+      "type": "CRUD"
+    }
+  ]
+}
