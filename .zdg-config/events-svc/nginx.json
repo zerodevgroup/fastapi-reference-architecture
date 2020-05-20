@@ -1,0 +1,15 @@
+{
+  "name": "events-svc-nginx",
+  "description": "events-svc-nginx",
+  "repo": "https://github.com/zerodevgroup/fastapi-reference-architecture",
+  "license": "MIT",
+  "author": "zerodevgroup",
+  "framework": {
+    "name": "micro-fab"
+  },
+  "config": {
+    "name": "events-svc",
+    "type": "container",
+    "port": "8000"
+  }
+}
