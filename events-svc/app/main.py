@@ -4,7 +4,7 @@ from db import metadata, database, engine
 
 metadata.create_all(engine)
 
-app = FastAPI()
+app = FastAPI(docs_url="/events_docs/", redoc_url=None)
 
 @app.on_event("startup")
 async def startup():

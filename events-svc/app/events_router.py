@@ -6,7 +6,7 @@ import events_controller
 
 router = APIRouter()
 
-@router.post('/', response_model=EventOut, status_code=201)
+@router.post('/events/', response_model=EventOut, status_code=201)
 async def create_event(payload: EventIn):
     event_id = await events_controller.add_event(payload)
     response = {
@@ -16,18 +16,18 @@ async def create_event(payload: EventIn):
 
     return response
 
-@router.get("/", response_model=List[EventOut])
+@router.get("/events/", response_model=List[EventOut])
 async def index():
     return await events_controller.get_all_events()
 
-@router.get('/{id}/', response_model=EventOut)
+@router.get('/events/{id}/', response_model=EventOut)
 async def get_event(id: int):
     event = await events_controller.get_event(id)
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
     return event
 
-@router.put('/{id}/', response_model=EventOut)
+@router.put('/events/{id}/', response_model=EventOut)
 async def update_event(id: int, payload: EventUpdate):
     event = await events_controller.get_event(id)
     if not event:
@@ -41,7 +41,7 @@ async def update_event(id: int, payload: EventUpdate):
 
     return await events_controller.update_event(id, updated_event)
 
-@router.delete('/{id}/', response_model=None)
+@router.delete('/events/{id}/', response_model=None)
 async def delete_event(id: int):
     event = await events_controller.get_event(id)
     if not event:
