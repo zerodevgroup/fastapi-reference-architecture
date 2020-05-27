@@ -14,6 +14,7 @@ events = Table(
     Column('id', Integer, primary_key=True),
     Column('name', String),
     Column('start_time', DateTime),
+    Column('end_time', DateTime),
 )
 
 database = Database(DATABASE_URL)

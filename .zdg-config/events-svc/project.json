@@ -8,7 +8,6 @@
     "name": "neon-frost"
   },
   "config": {
-    "postgresUrl": "postgresql://<myuser>:<mypass>@<myserver>/<mydb>",
     "domain": "localhost",
     "basePath": "/",
     "pagination:" : {
@@ -31,6 +30,10 @@
         {
           "name": "start_time",
           "type": "DateTime"
+        },
+        {
+          "name": "end_time",
+          "type": "DateTime"
         }
       ]
     }
@@ -46,8 +49,18 @@
         {
           "name": "start_time",
           "type": "datetime"
+        },
+        {
+          "name": "end_time",
+          "type": "datetime"
         }
       ]
+    }
+  ],
+  "services": [
+    {
+      "model": "event",
+      "type": "CRUD"
     }
   ],
   "controllers": [
