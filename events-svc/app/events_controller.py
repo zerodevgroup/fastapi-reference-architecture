@@ -21,3 +21,8 @@ async def delete_event(id: int):
 async def update_event(id: int, payload: EventIn):
     logger.debug(f"Controller: Updating event {id} with {payload}")
     return await events_service.update_event(id, payload)
+
+# Stripe functions
+async def add_stripe_payment(payload: PaymentIn):
+    logger.debug(f"Controller: Adding stripe payment with {payload}")
+    return await payments_service.add_stripe_payment(payload)

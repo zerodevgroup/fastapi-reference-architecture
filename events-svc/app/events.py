@@ -1,8 +1,8 @@
-from pydantic import BaseModel
 from datetime import datetime
 from typing import List, Optional
+from camel_model import CamelModel
 
-class EventIn(BaseModel):
+class EventIn(CamelModel):
     name: str
     start_time: datetime
     end_time: datetime

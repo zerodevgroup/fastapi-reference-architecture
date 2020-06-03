@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import (Column, DateTime, Integer, MetaData, String, Table, create_engine, ARRAY)
+from sqlalchemy import (Column, DateTime, Float, Integer, MetaData, String, Table, create_engine, ARRAY)
 
 from databases import Database
 

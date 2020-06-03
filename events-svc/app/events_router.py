@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import APIRouter, HTTPException
+from fastapi.logger import logger
 
 from events import EventIn, EventOut, EventUpdate
 import events_controller
@@ -47,3 +48,10 @@ async def delete_event(id: int):
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
     return await events_controller.delete_event(id)
+
+# Stripe routes
+@router.post('/stripe/', status_code=201)
+async def create_stripe_payment(payload: PaymentIn):
+    response = await payments_controller.add_stripe_payment(payload)
+    logger.debug(f"Router: Got this from stripe payment: {response}")
+    return response
